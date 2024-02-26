@@ -3,6 +3,7 @@
     "cancel": "[E] - Cancel",
     "felt_bite": "A fish has bitten the bait, prepare to catch it!",
     "catch_failed": "You didn't have enough strength to catch the fish.",
+    "catch_success": "You have caught a fish!.",
     "sell_fish_heading": "1x %s = %s$",
     "sell_fish_heading2": "1x %s = %s - %s$",
     "amount": "Amount",
