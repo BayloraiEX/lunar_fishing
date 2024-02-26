@@ -178,6 +178,7 @@ lib.callback.register('lunar_fishing:itemUsed', function(bait, fish)
         end
 
         p:resolve(success)
+        ShowNotification(locale('catch_success'), 'success')
     end)
 
     local success = Citizen.Await(p)
