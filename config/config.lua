@@ -61,7 +61,7 @@ Config.fishingZones = {
     {
         blip = {
             name = 'Coral Reef',
-            sprite = 317,
+            sprite = 405,
             color = 24,
             scale = 0.6
         },
@@ -79,7 +79,7 @@ Config.fishingZones = {
     {
         blip = {
             name = 'Deep Waters',
-            sprite = 317,
+            sprite = 405,
             color = 29,
             scale = 0.6
         },
@@ -96,7 +96,7 @@ Config.fishingZones = {
     {
         blip = {
             name = 'Swamp',
-            sprite = 317,
+            sprite = 405,
             color = 56,
             scale = 0.6
         },
@@ -128,9 +128,9 @@ Config.ped = {
     sellAccount = 'money',
     blip = {
         name = 'SeaTrade Corporation',
-        sprite = 356,
-        color = 74,
-        scale = 0.75
+        sprite = 405,
+        color = 18,
+        scale = 0.5
     },
 
     ---@type vector4[]
