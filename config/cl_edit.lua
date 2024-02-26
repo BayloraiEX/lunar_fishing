@@ -1,8 +1,27 @@
+/*
 function ShowNotification(message, notifyType)
     lib.notify({
         description = message,
         type = notifyType,
         position = 'top-right'
+    })
+end
+*/
+function ShowNotification(message)
+    lib.notify({
+        id = 'lunar_fishing',
+        title = 'Fishing',
+        description = message,
+        position = 'top-right',
+        style = {
+            backgroundColor = '#26272C',
+            color = '#C1C2C5',
+            ['.description'] = {
+              color = '#909296'
+            }
+        },
+        icon = 'fish',
+        iconColor = '#89CFF0'
     })
 end
 
