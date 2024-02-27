@@ -9,16 +9,27 @@ Config.progressPerCatch = 0.05 -- The progress per one fish caught
 
 ---@type table<string, Fish>
 Config.fish = {
-    ['anchovy'] = { price = { min = 25, max = 50 }, chance = 35, skillcheck = { 'easy', 'medium' } },
-    ['trout'] = { price = { min = 50, max = 100 }, chance = 35, skillcheck = { 'easy', 'medium' } },
-    ['haddock'] = { price = { min = 150, max = 200 }, chance = 20, skillcheck = { 'easy', 'medium' } },
-    ['salmon'] = { price = { min = 200, max = 250 }, chance = 10, skillcheck = { 'easy', 'medium', 'medium' } },
-    ['grouper'] = { price = { min = 300, max = 350 }, chance = 25, skillcheck = { 'easy', 'medium', 'medium', 'medium' } },
-    ['piranha'] = { price = { min = 350, max = 450 }, chance = 25, skillcheck = { 'easy', 'medium', 'hard' } },
-    ['red_snapper'] = { price = { min = 400, max = 450 }, chance = 20, skillcheck = { 'easy', 'medium', 'medium', 'medium' } },
-    ['mahi_mahi'] = { price = { min = 450, max = 500 }, chance = 20, skillcheck = { 'easy', 'medium', 'medium', 'medium' } },
-    ['tuna'] = { price = { min = 1250, max = 1500 }, chance = 5, skillcheck = { 'easy', 'medium', 'hard' } },
-    ['shark'] = { price = { min = 2250, max = 2750 }, chance = 1, skillcheck = { 'easy', 'medium', 'hard' } },
+    ['anchovy'] = { price = { min = 10, max = 20 }, chance = 35, skillcheck = { 'easy', 'easy' } }, -- Ocean
+    ['fish'] = { price = { min = 15, max = 40 }, chance = 35, skillcheck = { 'easy', 'easy' } }, -- River
+    ['redfish'] = { price = { min = 15, max = 40 }, chance = 35, skillcheck = { 'easy', 'easy' } }, -- River
+    ['goldfish'] = { price = { min = 15, max = 40 }, chance = 35, skillcheck = { 'easy', 'easy' } }, -- River
+    ['salmon'] = { price = { min = 20, max = 50 }, chance = 25, skillcheck = { 'easy', 'easy', 'medium' } }, -- Ocean & River
+    ['pinksalmon'] = { price = { min = 20, max = 50 }, chance = 20, skillcheck = { 'easy', 'easy', 'medium' } }, -- Ocean & River
+    ['trout'] = { price = { min = 20, max = 50 }, chance = 20, skillcheck = { 'easy', 'medium', 'medium' } }, -- Ocean & River
+    ['tuna'] = { price = { min = 20, max = 50 }, chance = 20, skillcheck = { 'easy', 'medium', 'medium' } }, -- Ocean & River
+    ['stripedbass'] = { price = { min = 30, max = 60 }, chance = 10, skillcheck = { 'easy', 'medium', 'hard' } }, -- River
+    ['largemouthbass'] = { price = { min = 40, max = 70 }, chance = 10, skillcheck = { 'easy', 'medium', 'hard' } }, -- River
+    ['catfish'] = { price = { min = 50, max = 80 }, chance = 5, skillcheck = { 'easy', 'medium', 'hard' } }, -- Ocean
+    ['stingray'] = { price = { min = 60, max = 125 }, chance = 5, skillcheck = { 'easy', 'medium', 'hard' } }, -- Ocean
+    ['haddock'] = { price = { min = 60, max = 125 }, chance = 20, skillcheck = { 'easy', 'medium' } }, -- Ocean
+    ['grouper'] = { price = { min = 60, max = 125 }, chance = 25, skillcheck = { 'easy', 'medium', 'medium', 'medium' } }, -- Ocean
+    ['piranha'] = { price = { min = 30, max = 60 }, chance = 25, skillcheck = { 'easy', 'medium', 'hard' } }, -- Swamp
+    ['red_snapper'] = { price = { min = 60, max = 125 }, chance = 20, skillcheck = { 'easy', 'medium', 'medium', 'medium' } },
+    ['mahi_mahi'] = { price = { min = 60, max = 125 }, chance = 20, skillcheck = { 'easy', 'medium', 'medium', 'medium' } },
+    ['whale'] = { price = { min = 100, max = 160 }, chance = 5, skillcheck = { 'easy', 'medium', 'hard' } }, -- Deep Ocean
+    ['bluewhale'] = { price = { min = 100, max = 170 }, chance = 5, skillcheck = { 'easy', 'medium', 'hard' } }, -- Deep Ocean
+    ['shark'] = { price = { min = 150, max = 300 }, chance = 2, skillcheck = { 'medium', 'medium', 'hard' } }, -- Deep Ocean
+    ['oldtreasurechest'] = { price = { min = 500, max = 1000 }, chance = 1, skillcheck = { 'medium', 'medium', 'medium' }}, -- SPECIAL ITEM WORTH $$$
 }
 
 ---@class FishingRod
@@ -29,9 +40,10 @@ Config.fish = {
 
 ---@type FishingRod[]
 Config.fishingRods = {
-    { name = 'basic_rod', price = 1000, minLevel = 1, breakChance = 20 },
-    { name = 'graphite_rod', price = 2500, minLevel = 2, breakChance = 10 },
-    { name = 'titanium_rod', price = 5000, minLevel = 3, breakChance = 1 },
+    { name = 'fishingrod', price = 200, minLevel = 1, breakChance = 20 },
+    { name = 'basic_rod', price = 100, minLevel = 5, breakChance = 15 },
+    { name = 'graphite_rod', price = 300, minLevel = 10, breakChance = 10 },
+    { name = 'titanium_rod', price = 500, minLevel = 20, breakChance = 0 },
 }
 
 ---@class FishingBait
@@ -42,8 +54,9 @@ Config.fishingRods = {
 
 ---@type FishingBait[]
 Config.baits = {
-    { name = 'worms', price = 5, minLevel = 1, waitDivisor = 1.0 },
-    { name = 'artificial_bait', price = 50, minLevel = 2, waitDivisor = 3.0 },
+    { name = 'worms', price = 1, minLevel = 1, waitDivisor = 1.0 },
+    { name = 'fishbait', price = 2, minLevel = 5, waitDivisor = 2.0 },
+    { name = 'artificial_bait', price = 3, minLevel = 10, waitDivisor = 3.0 },
 }
 
 ---@class FishingZone
@@ -62,7 +75,7 @@ Config.fishingZones = {
         blip = {
             name = 'Coral Reef',
             sprite = 405,
-            color = 24,
+            color = 18,
             scale = 0.6
         },
         locations = {
@@ -72,9 +85,9 @@ Config.fishingZones = {
         radius = 250.0,
         minLevel = 1,
         waitTime = { min = 5, max = 10 },
-        includeOutside = true,
+        includeOutside = false,
         message = { enter = 'You have entered a coral reef.', exit = 'You have left the coral reef.' },
-        fishList = { 'mahi_mahi', 'red_snapper' }
+        fishList = { 'anchovy', 'salmon', 'pinksalmon', 'trout', 'tuna', 'mahi_mahi', 'red_snapper' }
     },
     {
         blip = {
@@ -87,28 +100,47 @@ Config.fishingZones = {
             vector3(-4941.7964, -2411.9146, 0.0),
         },
         radius = 1000.0,
-        minLevel = 3,
+        minLevel = 10,
         waitTime = { min = 20, max = 40 },
         includeOutside = false,
         message = { enter = 'You have entered deep waters.', exit = 'You have left deep waters.' },
-        fishList = { 'grouper', 'tuna', 'shark' }
+        fishList = { 'salmon', 'pinksalmon', 'trout', 'tuna', 'haddock', 'grouper', 'catfish', 'stingray', 'whale', 'bluewhale', 'shark' }
     },
     {
         blip = {
             name = 'Swamp',
             sprite = 405,
-            color = 56,
+            color = 24,
             scale = 0.6
         },
         locations = {
             vector3(-2188.1182, 2596.9348, 0.0),
         },
         radius = 200.0,
-        minLevel = 2,
+        minLevel = 3,
         waitTime = { min = 10, max = 20 },
-        includeOutside = true,
+        includeOutside = false,
         message = { enter = 'You have entered a swamp.', exit = 'You have left the swamp.' },
-        fishList = { 'piranha' }
+        fishList = { 'piranha', 'largemouthbass' }
+    },
+    {
+        blip = {
+            name = 'River',
+            sprite = 405,
+            color = 26,
+            scale = 0.6
+        },
+        locations = {
+            vector3(-618.84, 4427.46, 0.0),
+            vector3(-178.21, 3063.3, 0.0),
+            vector3(-1526.51, 1505.36, 0.0),
+        },
+        radius = 125.0,
+        minLevel = 2,
+        waitTime = { min = 5, max = 10 },
+        includeOutside = false,
+        message = { enter = 'You have entered a river.', exit = 'You have left the river.' },
+        fishList = { 'fish', 'redfish', 'goldfish', 'salmon', 'pinksalmon', 'trout', 'tuna', 'stripedbass', 'largemouthbass' }
     },
 }
 
@@ -118,7 +150,7 @@ Config.outside = {
 
     ---@type string[]
     fishList = {
-        'trout', 'anchovy', 'haddock', 'salmon'
+        'anchovy', 'fish', 'redfish', 'goldfish', 'salmon'
     }
 }
 
@@ -144,15 +176,15 @@ Config.renting = {
     model = `s_m_m_dockwork_01`, -- The ped model
     account = 'money',
     boats = {
-        { model = `speeder`, price = 500, image = 'https://i.postimg.cc/mDSqWj4P/164px-Speeder.webp' },
-        { model = `dinghy`, price = 750, image = 'https://i.postimg.cc/ZKzjZgj0/164px-Dinghy2.webp'  },
-        { model = `tug`, price = 1250, image = 'https://i.postimg.cc/jq7vpKHG/164px-Tug.webp' }
+        { model = `speeder`, price = 250, image = 'https://i.postimg.cc/mDSqWj4P/164px-Speeder.webp' },
+        { model = `dinghy`, price = 500, image = 'https://i.postimg.cc/ZKzjZgj0/164px-Dinghy2.webp'  },
+        { model = `tug`, price = 750, image = 'https://i.postimg.cc/jq7vpKHG/164px-Tug.webp' }
     },
     blip = {
         name = 'Boat Rental',
-        sprite = 410,
+        sprite = 405,
         color = 74,
-        scale = 0.75
+        scale = 0.5
     },
 
     ---@type { coords: vector4, spawn: vector4 }[]
